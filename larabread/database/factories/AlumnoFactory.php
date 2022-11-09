@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class AlumnoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre'       => $this->faker->name(),
+            'apellidos'    => $this->faker->lastname(),
+            'email'        => $this->faker->email(),
+            'f_nacimiento' => $this->faker->date(),
+            'c_postal'     => $this->faker->string()
         ];
     }
 }
