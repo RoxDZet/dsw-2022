@@ -17,7 +17,12 @@ class RecetaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre'       => $this->faker->name(),
+            'descripcion'    => $this->faker->text(),
+            'precio'        => $this->faker->decimal(),
+            'calorias'        => $this->faker->integer(),
+            'f_alta' => $this->faker->date(),
+            
         ];
     }
 }

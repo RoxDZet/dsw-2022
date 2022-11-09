@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('paginas');
             $table->string('genero', 50);
             $table->date('f_publicacion')->nullable();
+            $table->timestamps();
         });
     }
 

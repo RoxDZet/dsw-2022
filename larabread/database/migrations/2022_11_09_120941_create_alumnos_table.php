@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email', 60)->unique();
             $table->date('f_nacimiento')->nullable();
             $table->string('c_postal', 10);
+            $table->timestamps();
         });
     }
 

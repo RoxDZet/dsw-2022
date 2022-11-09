@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double('precio', 10, 2);
             $table->integer('calorias');
             $table->date('f_alta')->nullable();
+            $table->timestamps();
         });
     }
 
