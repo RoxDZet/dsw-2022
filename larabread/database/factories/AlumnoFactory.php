@@ -22,7 +22,7 @@ class AlumnoFactory extends Factory
             'apellidos'    => $this->faker->lastname(),
             'email'        => $this->faker->email(),
             'f_nacimiento' => $this->faker->date(),
-            'c_postal'     => $this->faker->text()
+            'c_postal'     => $this->faker->postcode()
         ];
     }
 }

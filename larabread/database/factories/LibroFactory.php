@@ -19,7 +19,7 @@ class LibroFactory extends Factory
         return [
             'titulo'       => $this->faker->title(),
             'autor'    => $this->faker->name(),
-            'pagina'        => $this->faker->integer(),
+            'paginas'        => $this->faker->randomDigit(),
             'genero'    => $this->faker->text(),
             'f_publicacion' => $this->faker->date(),
         ];
