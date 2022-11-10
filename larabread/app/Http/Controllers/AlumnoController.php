@@ -15,7 +15,8 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        //
+        $alumno = Alumno::all();
+        return view("alumnos.index", compact("alumnos"));
     }
 
     /**
