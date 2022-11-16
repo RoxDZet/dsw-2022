@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::resource('alumnos', AlumnoController::class);
+
+//esto es una prueba
