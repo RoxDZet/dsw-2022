@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layout.screen')
 
 @section("contenido")
     <h1>Alumnos</h1>
@@ -6,7 +6,6 @@
         <div class="row">
             <div class="col-12">
                 <a href="{{route('alumnos.create')}}" class="btn btn-primary mb-3">Insertar Alumno</a>
-                <a target='_blank' href="{{route('alumnos.listado_pdf')}}" class="btn btn-danger mb-3">Listado pdf</a>
             </div>
         </div>
         <table id="tabla" class="table table-striped table-bordered">
@@ -16,17 +15,19 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
-                    <th>Telefono</th>
                     <th>Fecha de nacimiento</th>
+                    <th>Código Postal</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($alumnos as $alumno)
                 <tr data-id='{{$alumno->id}}'>
                     <td>{{$alumno->id}}</td>
-                    <td>{{$alumno->empresa}}</td>
-                    <td>{{$alumno->contacto}}</td>
-                    <td>{{$alumno->cargo_contacto}}</td>
+                    <td>{{$alumno->nombre}}</td>
+                    <td>{{$alumno->apellidos}}</td>
+                    <td>{{$alumno->email}}</td>
+                    <td>{{$alumno->f_nacimiento->format('d/m/Y')}}</td>
+                    <td>{{$alumno->c_postal}}</td>
                     <td><button class="btn btn-danger btn_borrar">Borrar</button></td>
                     <td><a href="{{url('/alumnos')}}/{{$alumno->id}}/edit" class="btn btn-warning btn_editar">Editar</a></td>
                 </tr>

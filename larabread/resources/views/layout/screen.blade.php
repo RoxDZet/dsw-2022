@@ -23,24 +23,23 @@
     <style>
         .panel {
             margin: 50px;
-            border: 3px solid orange;
-            padding: 50px;
-            border-radius:20px;
+            border: 3px solid yellow;
+            padding: 40px;
+            border-radius:15px;
         }
         .titulo {
             margin: 50px;
             text-align: center;
-            background-color: lightsalmon;
+            background-color: skyblue;
             padding: 20px;
             border-radius: 20px;
-            border: 4px solid orange;
+            border: 4px solid green;
         }
     </style>
 </head>
 <body>
     <div class="titulo">
         <h1>Aplicación</h1>
-        <!--<h4>{{Auth::user()->name}} - {{Auth::user()->email}}</h4>-->
     </div>
     <div class="panel">
         @yield('contenido')

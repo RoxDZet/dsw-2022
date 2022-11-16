@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAlumnoRequest;
 use App\Http\Requests\UpdateAlumnoRequest;
 use App\Models\Alumno;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AlumnoController extends Controller
 {
@@ -15,7 +17,7 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumno = Alumno::all();
+        $alumnos = Alumno::all();
         return view("alumnos.index", compact("alumnos"));
     }
 
@@ -82,6 +84,7 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        $alumno = Alumno::find($id);
+        $alumno->delete();
     }
 }
