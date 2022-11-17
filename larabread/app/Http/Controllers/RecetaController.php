@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRecetaRequest;
 use App\Http\Requests\UpdateRecetaRequest;
 use App\Models\Receta;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class RecetaController extends Controller
 {

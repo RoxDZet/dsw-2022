@@ -12,7 +12,6 @@
             {{--  font-size: 20px;  --}}
         }
     </style>
-</head>
 <body>
     <div class="boton"> {{-- botones que te llevan a las diferentes vistas --}}
         <a href="{{ route('alumnos.index') }}" class="btn btn-primary">Alumnos</a>

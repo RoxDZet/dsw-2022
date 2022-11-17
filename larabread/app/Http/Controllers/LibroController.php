@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLibroRequest;
 use App\Http\Requests\UpdateLibroRequest;
 use App\Models\Libro;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class LibroController extends Controller
 {

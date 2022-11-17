@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Receta extends Model
 {
     use HasFactory;
+    protected $dates=["f_alta"];
 }

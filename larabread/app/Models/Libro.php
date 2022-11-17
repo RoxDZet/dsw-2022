@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Libro extends Model
 {
     use HasFactory;
+    protected $dates=["f_publicacion"];
 }

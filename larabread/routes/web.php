@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\LibroController;
+use App\Http\Controllers\RecetaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,5 @@ Route::get('/', function () {
 });
 
 Route::resource('alumnos', AlumnoController::class);
-
-//esto es una prueba
+Route::resource('libros', LibroController::class);
+Route::resource('recetas', RecetaController::class);
