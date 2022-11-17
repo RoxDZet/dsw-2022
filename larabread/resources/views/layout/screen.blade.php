@@ -22,10 +22,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .panel {
-            margin: 50px;
-            border: 3px solid yellow;
-            padding: 40px;
-            border-radius:15px;
+            margin: 45px;
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid blue;
         }
         .titulo {
             margin: 50px;
