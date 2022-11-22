@@ -10,4 +10,5 @@ class Alumno extends Model
     use HasFactory;
     
     protected $dates=["f_nacimiento"];
+    protected $guarded=[];
 }

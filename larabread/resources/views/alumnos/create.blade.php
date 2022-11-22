@@ -15,8 +15,8 @@
             <input type="text" name="nombre" id="nombre" class="form-control">
         </div>
         <div class="form-group">
-            <label for="apellido">Apellido</label>
-            <input type="text" name="apellido" id="apellido" class="form-control">
+            <label for="apellidos">Apellido</label>
+            <input type="text" name="apellidos" id="apellidos" class="form-control">
         </div>
         <div class="form-group">
             <label for="email">Email</label>

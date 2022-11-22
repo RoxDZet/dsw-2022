@@ -12,11 +12,10 @@
             {{--  font-size: 20px;  --}}
         }
     </style>
-<body>
     <div class="boton"> {{-- botones que te llevan a las diferentes vistas --}}
         <a href="{{ route('alumnos.index') }}" class="btn btn-primary">Alumnos</a>
         <a href="{{ route('recetas.index') }}" class="btn btn-secondary">Recetas</a>
         <a href="{{ route('libros.index') }}" class="btn btn-primary">Libros</a>
     </div>
-</body>
-</html>
+
+@endsection
