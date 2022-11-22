@@ -9,7 +9,7 @@
             </div>
         </div>
         <table id="tabla" class="table table-striped table-bordered">
-           <thead>
+            <thead>
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
@@ -17,6 +17,8 @@
                     <th>Email</th>
                     <th>Fecha de nacimiento</th>
                     <th>Código Postal</th>
+                    <th>Borrar</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,9 +41,6 @@
     <script>
         $(document).ready(function(){
             $('#tabla').DataTable({
-                "language": {
-                    url: "http://cifpzonzamas.org/gestion/resources/Spanish.json",
-                }
             });
             $("#tabla").on("click",".btn_borrar",function(e){
                 e.preventDefault();

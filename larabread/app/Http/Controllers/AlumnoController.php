@@ -28,7 +28,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view("alumnos.create");
     }
 
     /**
@@ -39,7 +39,10 @@ class AlumnoController extends Controller
      */
     public function store(StoreAlumnoRequest $request)
     {
-        //
+        $datos = $request->all();
+        //$datos["f_nacimiento"] = Carbon::createFromFormat("d/m/Y", $datos["f_nacimiento"]);
+        Alumno::create($datos);
+        return redirect("/alumnos");
     }
 
     /**
@@ -82,7 +85,7 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy($id)
     {
         $alumno = Alumno::find($id);
         $alumno->delete();
