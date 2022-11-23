@@ -53,7 +53,20 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        //
+        return view("alumnos.show", compact("alumno"));
+    }
+
+    /**
+     * Make a PDF file with the list of all the students.
+     *
+     * @param  \App\Models\Alumno  $alumno
+     * @return \Illuminate\Http\Response
+     */
+    public function listadoPdf(){
+        $alumnos = Alumno::all();
+        $pdf = \PDF::loadView("alumnos.listado_pdf",compact("alumnos"));
+
+        return $pdf->stream('listado.pdf');
     }
 
     /**
@@ -62,9 +75,10 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit($id)
     {
-        //
+        $alumno = Alumno::find($id);
+        return view("alumnos.edit", compact("alumno"));
     }
 
     /**
@@ -74,9 +88,11 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAlumnoRequest $request, Alumno $alumno)
+    public function update(Request $request, $id)
     {
-        //
+        $alumno = Alumno::find($id);
+        $alumno->update($request->all());
+        return redirect("/alumnos");
     }
 
     /**
