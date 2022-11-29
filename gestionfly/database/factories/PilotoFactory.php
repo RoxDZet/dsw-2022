@@ -17,7 +17,7 @@ class PilotoFactory extends Factory
     *apellidos: varchar(100)
     *f_nacimiento: date
     *email: varchar(50)
-    *dni: varchar(10)
+    *dni: valor único, 8 dígitos y una letra
     *telefono: varchar(20)
      * @return array<string, mixed>
      */
@@ -28,7 +28,7 @@ class PilotoFactory extends Factory
             'apellidos'    => $this->faker->lastname(),
             'f_nacimiento' => $this->faker->date(),
             'email'        => $this->faker->email(),
-            'dni'          => $this->faker->postcode(),
+            'dni'          => $this->faker->unique()->bothify('#########?'),
             'telefono'     => $this->faker->phoneNumber()
         ];
     }

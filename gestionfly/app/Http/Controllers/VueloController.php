@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreVueloRequest;
 use App\Http\Requests\UpdateVueloRequest;
 use App\Models\Vuelo;
+use Illuminate\Http\Request;
 
 class VueloController extends Controller
 {
@@ -21,11 +22,24 @@ class VueloController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     ** Show the form for editing the specified resource.
+     *Para insertar y editar vuelos usar las siguientes reglas de validación (1 pto)
+    *Todos los campos son requeridos
+    *La ciudad origen y destino tienen que ser diferentes, y tener un mínimo de 5 caracteres y un máximo de 50.
+    *El código de vuelo debe ser exactamente un código de 10 caracteres alfanuméricos.
+    *La fecha debe ser mayor que la fecha actual.
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
+        $validated = $request->validate([
+            'ciudad_origen' => 'required|min:5|max:50|different:ciudad_destino',
+            'ciudad_destino' => 'required|min:5|max:50|different:ciudad_origen',
+            'codigo_vuelo' => 'required|alpha_num|size:10',
+            'fecha' => 'required|date|after:today',
+            'hora' => 'required|date_format:H:i',
+            'piiloto_id' => 'required|exists:pilotos,id',
+        ]);
         return view("vuelos.create");
     }
 
@@ -69,12 +83,24 @@ class VueloController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     *Para insertar y editar vuelos usar las siguientes reglas de validación (1 pto)
+    *Todos los campos son requeridos
+    *La ciudad origen y destino tienen que ser diferentes, y tener un mínimo de 5 caracteres y un máximo de 50.
+    *El código de vuelo debe ser exactamente un código de 10 caracteres alfanuméricos.
+    *La fecha debe ser mayor que la fecha actual.
      * @param  \App\Models\Vuelo  $vuelo
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
+        $validated = $request->validate([
+            'ciudad_origen' => 'required|min:5|max:50'|'different:ciudad_destino',
+            'ciudad_destino' => 'required|min:5|max:50|different:ciudad_origen',
+            'codigo_vuelo' => 'required|regex:/^[a-zA-Z0-9]{10}$/',
+            'fecha' => 'required|date|after:today',
+            'hora' => 'required|date_format:H:i',
+            'piloto_id' => 'required|exists:pilotos,id',
+        ]);
         $vuelo = Vuelo::find($id);
         return view("vuelos.edit", compact("vuelo"));
     }
@@ -86,7 +112,7 @@ class VueloController extends Controller
      * @param  \App\Models\Vuelo  $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVueloRequest $request, Vuelo $vuelo, $id)
+    public function update(Request $request, $id)
     {
         $vuelo = Vuelo::find($id);
         $vuelo->update($request->all());

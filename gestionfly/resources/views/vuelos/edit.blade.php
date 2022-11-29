@@ -1,37 +1,53 @@
-@extends('layouts.screen')
+@extends('layouts.app1')
 
 @section("contenido")
-    <h1>Actualizar alumno</h1>
+    <h1>Actualizar Vuelo</h1>
 
-    <form action="{{route('alumnos.update',['id' => $alumno->id])}}" method="PUT">
+    <form action="{{route('vuelos.update',['id' => $vuelo->id])}}" method="PUT">
         @csrf
-
+     {{--*Vuelo
+     *id: autonumérico
+     *codigo: varchar(10)
+     *origen: varchar(50)
+     *destino: varchar(50)
+     *fecha: date
+     *hora: time
+     *piloto_id: clave extranjera--}}
+        
         <div class="form-group">
             <label for="id">Id</label>
-            <input type="number" name="id" id="id" class="form-control">
+            <input type="number" name="id" id="id" class="form-control" value="{{$vuelo->id}}">
         </div>
         <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" class="form-control">
+            <label for="codigo">Código</label>
+            <input type="text" name="codigo" id="codigo" class="form-control" placeholder="Código del vuelo" aria-describedby="helpId" value="{{$vuelo->codigo}}">
         </div>
         <div class="form-group">
-            <label for="apellidos">Apellido</label>
-            <input type="text" name="apellidos" id="apellidos" class="form-control">
+            <label for="origen">Origen</label>
+            <input type="text" name="origen" id="origen" class="form-control" placeholder="Origen del vuelo" aria-describedby="helpId" value="{{$vuelo->origen}}">
         </div>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control">
+            <label for="destino">Destino</label>
+            <input type="text" name="destino" id="destino" class="form-control" placeholder="Destino del vuelo" aria-describedby="helpId" value="{{$vuelo->destino}}">
         </div>
         <div class="form-group">
-            <label for="f_nacimiento">Fecha de nacimiento</label>
-            <input type="date" name="f_nacimiento" id="f_nacimiento" class="form-control">
+            <label for="fecha">Fecha</label>
+            <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha del vuelo" aria-describedby="helpId" value="{{$vuelo->fecha}}">
         </div>
         <div class="form-group">
-            <label for="c_postal">Código postal</label>
-            <input type="text" name="c_postal" id="c_postal" class="form-control">
+            <label for="hora">Hora</label>
+            <input type="time" name="hora" id="hora" class="form-control" placeholder="Hora del vuelo" aria-describedby="helpId" value="{{$vuelo->hora}}">
+        </div>
+        <div class="form-group">
+            <label for="piloto_id">Piloto</label>
+            <select class="form-control" name="piloto_id" id="piloto_id">
+                @foreach ($pilotos as $piloto)
+                    <option value="{{$piloto->id}}">{{$piloto->nombre}}</option>
+                @endforeach
+            </select>
         </div>
         
-        <input type="submit" value="Editar alumno" class="btn btn-success">
+        <input type="submit" value="Editar vuelo" class="btn btn-success">
         <input type="reset" value="Limpiar formulario" class="btn btn-warning">
 
 </form>

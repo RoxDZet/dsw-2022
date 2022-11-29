@@ -15,7 +15,8 @@ class PilotoController extends Controller
      */
     public function index()
     {
-        //
+        $pilotos = Piloto::all();
+        return view("pilotos.index", compact("pilotos"));
     }
 
     /**

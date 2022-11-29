@@ -13,7 +13,8 @@
         }
     </style>
     <div class="boton"> {{-- botones que te llevan a las diferentes vistas --}}
-        <a href="{{ route('vuelos.index') }}" class="btn btn-primary">Alumnos</a>
+        <a href="{{ route('vuelos.index') }}" class="btn btn-primary">Vuelos</a>
+        <a href="{{ route('pilotos.index') }}" class="btn btn-primary">Pilotos</a>
     </div>
 
 @endsection

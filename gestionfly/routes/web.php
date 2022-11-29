@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VueloController;
+use App\Http\Controllers\PilotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('pilotos', AlumnoController::class);
-Route::resource('vuelos', LibroController::class);
-Route::resource('pasajes', RecetaController::class);
+Route::resource("pilotos", PilotoController::class);
+Route::resource('vuelos', VueloController::class);
+Route::get("/listado_pdf", [VueloController::class, 'listadoPdf'])->name("vuelos.listado_pdf");

@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <a href="{{route('vuelos.create')}}" class="btn btn-primary mb-3">Insertar Vuelo</a>
+                <a target='_blank' href="{{route('vuelos.listado_pdf')}}" class="btn btn-warning mb-3">Listado pdf</a>
             </div>
         </div>
         {{--/Vuelo

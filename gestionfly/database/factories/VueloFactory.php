@@ -13,7 +13,7 @@ class VueloFactory extends Factory
      * Define the model's default state.
      *Vuelo
     *id: autonumérico
-    *codigo: varchar(10)
+    *codigo: alfanumérico
     *origen: varchar(50)
     *destino: varchar(50)
     *fecha: date
@@ -24,7 +24,7 @@ class VueloFactory extends Factory
     public function definition()
     {
         return [
-            'codigo'    => $this->faker->postcode(),
+            'codigo'    => $this->faker->unique()->bothify('??##??'),
             'origen'    => $this->faker->city(),
             'destino'   => $this->faker->city(),
             'fecha'     => $this->faker->date(),
